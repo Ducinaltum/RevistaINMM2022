@@ -18,7 +18,11 @@
   <!--FLIPBOOK-->
   <script type="">
     // Browser
-    console.log("Tested");
+    console.log(document.documentElement.clientHeight);
+    console.log(window.innerHeight);
+    var pageWidth = 595;
+    var pageHeight = 841;
+    var ratio = pageWidth / pageHeight;
     const pageFlip = new St.PageFlip(
       document.getElementById("example"),
       {
@@ -26,19 +30,19 @@
           startPage: 0,
           size: "stretch",
           // width & height *(REQUIRED)
-          width: 595,
-          height: 841,
+          width: pageWidth,
+          height: pageHeight,
           // min/max width & height
           minWidth: 0,
-          maxWidth: 0,
+          maxWidth: window.innerHeight * ratio,
           minHeight: 0,
-          maxHeight: 0,
+          maxHeight: pageHeight,
           // draw book shadows
           drawShadow: true,
           // animation speed
           flippingTime: 1000,
           // allows to switch to portrait mode
-          usePortrait: true,
+          usePortrait: false,
           // z-index property
           startZIndex: 0,
           // auto resizes the parent container to fit the book
