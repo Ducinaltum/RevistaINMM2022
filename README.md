@@ -1,1 +1,0 @@
-# RevistaINMM2022

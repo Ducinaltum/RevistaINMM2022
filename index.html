@@ -1,81 +1,71 @@
-<!doctype html>
-<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta name="viewport" content="width = 90vw, user-scalable = yes" />
-<script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
-<script type="text/javascript" src="extras/modernizr.2.5.3.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caminos Mercedarios</title>
+  <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
 </head>
+
 <body>
 
-<div class="flipbook-viewport">
-	<div class="container">
-		<div class="flipbook">
-			<div class="page" style="background-image:url(pages/0.jpg)"></div>
-			<div class="page" style="background-image:url(pages/1.jpg)"></div>
-			<div class="page" style="background-image:url(pages/2.jpg)"></div>
-			<div class="page" style="background-image:url(pages/3.jpg)"></div>
-			<div class="page" style="background-image:url(pages/4.jpg)"></div>
-			<div class="page" style="background-image:url(pages/5.jpg)"></div>
-			<div class="page" style="background-image:url(pages/6.jpg)"></div>
-			<div class="page" style="background-image:url(pages/7.jpg)"></div>
-			<div class="page" style="background-image:url(pages/8.jpg)"></div>
-			<div class="page" style="background-image:url(pages/9.jpg)"></div>
-			<div class="page" style="background-image:url(pages/10.jpg)"></div>
-			<div class="page" style="background-image:url(pages/11.jpg)"></div>
-			<div class="page" style="background-image:url(pages/12.jpg)"></div>
-		</div>
-	</div>
-</div>
+  <!--FLIPBOOK-->
 
+  <div class="flip-book" id="example">
 
-<script type="text/javascript">
-
-function loadApp() {
-
-	var flipbook = $('.flipbook');
-
- 	// Check if the CSS was already loaded
-	
-	if (flipbook.width()==0 || flipbook.height()==0) {
-		setTimeout(loadApp, 10);
-		return;
-	}
-
-	$('.flipbook .double').scissor();
-
-	// Create the flipbook
-
-	$('.flipbook').turn({
-			// Elevation
-
-			elevation: 50,
-			
-			// Enable gradients
-
-			gradients: true,
-			
-			// Auto center this flipbook
-
-			autoCenter: true
-
-	});
-}
-
-// Load the HTML4 version if there's not CSS transform
-
-yepnope({
-	test : Modernizr.csstransforms,
-	yep: ['lib/turn.min.js'],
-	nope: ['lib/turn.html4.min.js'],
-	both: ['lib/scissor.min.js', 'css/double-page.css'],
-	complete: loadApp
-});
-
-</script>
-
+  </div>
+  <!--FLIPBOOK-->
+  <script type="">
+    // Browser
+    console.log("Tested");
+    const pageFlip = new St.PageFlip(
+      document.getElementById("example"),
+      {
+          // start page index
+          startPage: 0,
+          size: "stretch",
+          // width & height *(REQUIRED)
+          width: 595,
+          height: 841,
+          // min/max width & height
+          minWidth: 0,
+          maxWidth: 0,
+          minHeight: 0,
+          maxHeight: 0,
+          // draw book shadows
+          drawShadow: true,
+          // animation speed
+          flippingTime: 1000,
+          // allows to switch to portrait mode
+          usePortrait: true,
+          // z-index property
+          startZIndex: 0,
+          // auto resizes the parent container to fit the book
+          autoSize: true,
+          // max opacity of shadow
+          maxShadowOpacity: 1,
+          // shows book cover
+          showCover: false,
+          // supports mobile scroll?
+          mobileScrollSupport: true
+      }
+    );
+    pageFlip.loadFromImages(['0.jpg', 
+                            '1.jpg',
+                            '2.jpg',
+                            '3.jpg',
+                            '4.jpg',
+                            '5.jpg',
+                            '6.jpg',
+                            '7.jpg',
+                            '8.jpg',
+                            '9.jpg',
+                            '10.jpg',
+                            '11.jpg',
+                            '12.jpg',
+                          ]);
+  </script>
 </body>
+
 </html>
